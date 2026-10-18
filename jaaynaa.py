@@ -127,276 +127,140 @@ def make_pdf(title, rows, totals=None, filename="document.pdf"):
 init_db()
 if "lang" not in st.session_state: st.session_state.lang = setting("language", "Français")
 if "theme" not in st.session_state: st.session_state.theme = setting("theme", "Clair")
-# DESIGN XXL — interface animée, moderne et responsive
+# NEON FUTURE UI — interface complète JAAYNAA PRO
 if st.session_state.theme == "Sombre":
-    theme_background = "#0b1220"
-    theme_surface = "rgba(20, 31, 51, .88)"
-    theme_text = "#f3f6ff"
-    theme_muted = "#aab7cf"
-    theme_border = "rgba(148, 163, 184, .20)"
+    theme_background = "#070b14"
+    theme_surface = "rgba(15, 23, 42, .88)"
+    theme_text = "#edf7ff"
+    theme_muted = "#8ea3bd"
+    theme_border = "rgba(103, 232, 249, .16)"
 else:
-    theme_background = "#f4f7fb"
-    theme_surface = "rgba(255, 255, 255, .90)"
-    theme_text = "#142033"
-    theme_muted = "#64748b"
-    theme_border = "rgba(100, 116, 139, .18)"
+    theme_background = "#eef4f8"
+    theme_surface = "rgba(255, 255, 255, .92)"
+    theme_text = "#102033"
+    theme_muted = "#61758b"
+    theme_border = "rgba(15, 118, 110, .18)"
 
 st.markdown(f"""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root {{
-  --ja-bg: {theme_background};
-  --ja-surface: {theme_surface};
-  --ja-text: {theme_text};
-  --ja-muted: {theme_muted};
-  --ja-border: {theme_border};
-  --ja-green: #16a34a;
-  --ja-lime: #a3e635;
-  --ja-teal: #0f766e;
-  --ja-orange: #fb923c;
+ --ja-bg:{theme_background}; --ja-surface:{theme_surface}; --ja-text:{theme_text};
+ --ja-muted:{theme_muted}; --ja-border:{theme_border};
+ --ja-cyan:#67e8f9; --ja-green:#22c55e; --ja-lime:#bef264; --ja-gold:#facc15;
 }}
-html, body, [class*="css"] {{
-  font-family: 'DM Sans', sans-serif;
-}}
+html, body, [class*="css"] {{font-family:'DM Sans',sans-serif;}}
 .stApp {{
-  background:
-    radial-gradient(ellipse at 8% 0%, rgba(34,197,94,.12), transparent 34%),
-    radial-gradient(ellipse at 92% 8%, rgba(20,184,166,.10), transparent 30%),
-    var(--ja-bg);
-  color: var(--ja-text);
+ color:var(--ja-text);
+ background:
+  linear-gradient(rgba(103,232,249,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(103,232,249,.035) 1px,transparent 1px),
+  radial-gradient(ellipse at 5% 0%,rgba(34,197,94,.15),transparent 34%),
+  radial-gradient(ellipse at 95% 12%,rgba(34,211,238,.13),transparent 32%),
+  var(--ja-bg);
+ background-size:34px 34px,34px 34px,auto,auto,auto;
 }}
-.block-container {{
-  max-width: 1600px;
-  padding-top: 1.35rem;
-  padding-bottom: 3rem;
-}}
-h1, h2, h3 {{
-  font-family: 'Space Grotesk', 'DM Sans', sans-serif !important;
-  letter-spacing: -.035em;
-}}
-h1 {{
-  font-weight: 800 !important;
-  line-height: 1.08 !important;
-}}
-/* Sidebar premium */
+.block-container {{max-width:1750px;padding-top:1.2rem;padding-bottom:3rem;}}
+h1,h2,h3,h4 {{font-family:'Space Grotesk',sans-serif!important;letter-spacing:-.035em;}}
+h1 {{font-weight:700!important;}}
+p, label, .stCaption {{letter-spacing:.005em;}}
 section[data-testid="stSidebar"] {{
-  background: linear-gradient(165deg, #092e25 0%, #0f5138 52%, #102b28 100%);
-  border-right: 1px solid rgba(163,230,53,.18);
+ background:linear-gradient(160deg,#061b20 0%,#092d2b 48%,#101b2d 100%);
+ border-right:1px solid rgba(103,232,249,.22);
 }}
-section[data-testid="stSidebar"] * {{
-  color: #f0fdf4 !important;
-}}
+section[data-testid="stSidebar"] * {{color:#e7fbff;}}
 section[data-testid="stSidebar"] [data-testid="stRadio"] label {{
-  border-radius: 12px;
-  padding: 8px 10px;
-  transition: background .22s ease, transform .22s ease;
+ padding:10px 12px;border:1px solid transparent;border-radius:12px;
+ transition:all .22s ease;font-weight:600;
 }}
 section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {{
-  background: rgba(255,255,255,.10);
-  transform: translateX(3px);
+ background:rgba(103,232,249,.09);border-color:rgba(103,232,249,.25);transform:translateX(3px);
 }}
-section[data-testid="stSidebar"] [data-testid="stSelectbox"] > div > div {{
-  background: rgba(255,255,255,.10);
-  border-color: rgba(255,255,255,.18);
-  border-radius: 12px;
-}}
-/* Navigation principale horizontale en haut */
 .ja-nav-shell {{
-  position: relative;
-  margin: -0.35rem 0 1.35rem 0;
-  padding: 10px 12px;
-  border: 1px solid var(--ja-border);
-  border-radius: 18px;
-  background: var(--ja-surface);
-  box-shadow: 0 10px 28px rgba(15,23,42,.07);
-  backdrop-filter: blur(16px);
+ margin:-.25rem 0 1.35rem;padding:10px 12px;border-radius:17px;
+ border:1px solid var(--ja-border);background:var(--ja-surface);
+ box-shadow:0 12px 38px rgba(2,8,23,.09);backdrop-filter:blur(18px);
 }}
-.ja-nav-shell div[role="radiogroup"] {{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 7px;
-  align-items: center;
+.ja-nav-shell div[role="radiogroup"] {{display:flex;flex-wrap:wrap;gap:7px;align-items:center;}}
+.ja-nav-shell div[role="radiogroup"]>label {{
+ min-height:40px;padding:9px 13px!important;margin:0!important;border:1px solid transparent;
+ border-radius:11px!important;color:var(--ja-text)!important;font-weight:700;font-size:.86rem;
+ transition:all .2s ease;
 }}
-.ja-nav-shell div[role="radiogroup"] > label {{
-  display: flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 9px 14px !important;
-  margin: 0 !important;
-  border: 1px solid transparent;
-  border-radius: 12px !important;
-  background: transparent;
-  color: var(--ja-text) !important;
-  font-size: .88rem;
-  font-weight: 700;
-  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
-  cursor: pointer;
+.ja-nav-shell div[role="radiogroup"]>label:hover {{
+ background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.28);transform:translateY(-2px);
 }}
-.ja-nav-shell div[role="radiogroup"] > label:hover {{
-  background: rgba(34,197,94,.10);
-  border-color: rgba(34,197,94,.20);
-  transform: translateY(-2px);
+.ja-nav-shell div[role="radiogroup"]>label:has(input:checked) {{
+ background:linear-gradient(120deg,#0e7490,#0f766e 55%,#15803d);
+ color:#fff!important;box-shadow:0 0 22px rgba(34,211,238,.17);
 }}
-.ja-nav-shell div[role="radiogroup"] > label:has(input:checked) {{
-  background: linear-gradient(120deg, #166534, #16a34a 65%, #0f766e);
-  color: #ffffff !important;
-  box-shadow: 0 7px 18px rgba(22,163,74,.22);
-}}
-.ja-nav-shell div[role="radiogroup"] > label:has(input:checked) * {{
-  color: #ffffff !important;
-}}
-.ja-nav-shell div[role="radiogroup"] > label > div:first-child {{
-  display: none;
-}}
-@media (max-width: 850px) {{
-  .ja-nav-shell {{ padding: 8px; }}
-  .ja-nav-shell div[role="radiogroup"] {{ gap: 5px; }}
-  .ja-nav-shell div[role="radiogroup"] > label {{
-    padding: 8px 10px !important;
-    font-size: .8rem;
-  }}
-}}
-/* Metrics as animated glass cards */
+.ja-nav-shell div[role="radiogroup"]>label:has(input:checked) * {{color:#fff!important;}}
+.ja-nav-shell div[role="radiogroup"]>label>div:first-child {{display:none;}}
 div[data-testid="stMetric"] {{
-  position: relative;
-  overflow: hidden;
-  background: var(--ja-surface);
-  border: 1px solid var(--ja-border);
-  border-radius: 20px;
-  padding: 19px 20px;
-  box-shadow: 0 12px 32px rgba(15,23,42,.06);
-  backdrop-filter: blur(14px);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  animation: ja-rise .55s both;
+ position:relative;overflow:hidden;padding:20px 21px;border-radius:18px;
+ border:1px solid var(--ja-border);background:var(--ja-surface);
+ box-shadow:0 12px 30px rgba(2,8,23,.06);backdrop-filter:blur(16px);
+ animation:ja-enter .45s both;transition:transform .23s,border-color .23s,box-shadow .23s;
 }}
-div[data-testid="stMetric"]::before {{
-  content: "";
-  position: absolute;
-  width: 110px; height: 110px;
-  right: -48px; top: -52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(34,197,94,.20), rgba(163,230,53,.04));
-  transition: transform .35s ease;
+div[data-testid="stMetric"]:after {{
+ content:"";position:absolute;width:100px;height:100px;right:-38px;top:-48px;
+ border:1px solid rgba(103,232,249,.25);border-radius:50%;
+ box-shadow:0 0 0 13px rgba(103,232,249,.035),0 0 0 27px rgba(103,232,249,.025);
 }}
-div[data-testid="stMetric"]:hover {{
-  transform: translateY(-5px);
-  box-shadow: 0 18px 42px rgba(22,163,74,.13);
-  border-color: rgba(34,197,94,.38);
+div[data-testid="stMetric"]:hover {{transform:translateY(-4px);border-color:rgba(34,211,238,.45);box-shadow:0 16px 36px rgba(8,145,178,.12);}}
+div[data-testid="stMetricLabel"] {{color:var(--ja-muted)!important;font-weight:700;font-size:.82rem;}}
+div[data-testid="stMetricValue"] {{color:var(--ja-text)!important;font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.045em;}}
+.stButton>button,.stDownloadButton>button,button[kind="primary"] {{
+ min-height:42px;border-radius:12px!important;border:1px solid rgba(34,211,238,.28)!important;
+ font-weight:700!important;transition:all .2s ease!important;
 }}
-div[data-testid="stMetric"]:hover::before {{ transform: scale(1.45); }}
-div[data-testid="stMetricLabel"] {{ color: var(--ja-muted) !important; font-weight: 600; }}
-div[data-testid="stMetricValue"] {{ color: var(--ja-text) !important; font-weight: 800; letter-spacing: -.04em; }}
-/* Buttons */
-.stButton > button, .stDownloadButton > button, button[kind="primary"] {{
-  border-radius: 13px !important;
-  border: 1px solid rgba(34,197,94,.25) !important;
-  font-weight: 700 !important;
-  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease !important;
+.stButton>button[kind="primary"],button[kind="primary"] {{
+ color:#f0fdff!important;background:linear-gradient(115deg,#0e7490,#0f766e 60%,#15803d)!important;
+ box-shadow:0 8px 24px rgba(8,145,178,.19);
 }}
-.stButton > button[kind="primary"], button[kind="primary"] {{
-  background: linear-gradient(115deg, #15803d, #16a34a 52%, #65a30d) !important;
-  color: white !important;
-  box-shadow: 0 8px 20px rgba(22,163,74,.20);
+.stButton>button:hover,.stDownloadButton>button:hover {{transform:translateY(-2px);box-shadow:0 12px 26px rgba(8,145,178,.15);}}
+.stTextInput input,.stNumberInput input,.stDateInput input,.stTextArea textarea,
+div[data-baseweb="select"]>div {{border-radius:11px!important;}}
+div[data-testid="stDataFrame"],div[data-testid="stTable"] {{
+ border:1px solid var(--ja-border);border-radius:15px;overflow:hidden;
+ box-shadow:0 8px 24px rgba(2,8,23,.045);
 }}
-.stButton > button:hover, .stDownloadButton > button:hover {{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(22,163,74,.16);
-  filter: saturate(1.12);
-}}
-/* Inputs */
-.stTextInput input, .stNumberInput input, .stDateInput input, .stTextArea textarea {{
-  border-radius: 12px !important;
-}}
-div[data-baseweb="select"] > div {{
-  border-radius: 12px !important;
-}}
-/* Tables and expanders */
-div[data-testid="stDataFrame"], div[data-testid="stTable"] {{
-  border: 1px solid var(--ja-border);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 26px rgba(15,23,42,.04);
-}}
-details[data-testid="stExpander"] {{
-  border: 1px solid var(--ja-border);
-  border-radius: 16px;
-  background: var(--ja-surface);
-  transition: border-color .2s ease, box-shadow .2s ease;
-}}
-details[data-testid="stExpander"]:hover {{
-  border-color: rgba(34,197,94,.38);
-  box-shadow: 0 8px 24px rgba(22,163,74,.07);
-}}
-hr {{ border-color: var(--ja-border) !important; }}
-/* Tabs */
-button[data-baseweb="tab"] {{
-  border-radius: 11px 11px 0 0;
-  font-weight: 700;
-}}
-/* Branded animated strip */
+details[data-testid="stExpander"] {{border:1px solid var(--ja-border);border-radius:15px;background:var(--ja-surface);}}
+details[data-testid="stExpander"]:hover {{border-color:rgba(34,211,238,.38);}}
+button[data-baseweb="tab"] {{font-weight:700;border-radius:10px 10px 0 0;}}
+hr {{border-color:var(--ja-border)!important;}}
 .jaaynaa-topbar {{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  overflow: hidden;
-  margin: 0 0 1.4rem 0;
-  padding: 17px 22px;
-  border: 1px solid rgba(163,230,53,.24);
-  border-radius: 20px;
-  color: #f0fdf4;
-  background: linear-gradient(112deg, #052e24 0%, #166534 48%, #0f766e 100%);
-  box-shadow: 0 14px 36px rgba(6,78,59,.16);
+ position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;
+ overflow:hidden;margin:0 0 1.2rem;padding:24px 26px;border-radius:22px;
+ color:#effcff;border:1px solid rgba(103,232,249,.32);
+ background:linear-gradient(112deg,#06141f 0%,#0b3540 45%,#0d513b 100%);
+ box-shadow:0 18px 50px rgba(2,8,23,.20);
+}}
+.jaaynaa-topbar:before {{
+ content:"";position:absolute;inset:0;pointer-events:none;opacity:.38;
+ background:repeating-linear-gradient(115deg,transparent 0 24px,rgba(103,232,249,.12) 25px,transparent 26px 48px);
 }}
 .jaaynaa-topbar:after {{
-  content: "";
-  position: absolute;
-  width: 280px; height: 280px;
-  right: -50px; top: -170px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 50%;
-  box-shadow: 0 0 0 28px rgba(255,255,255,.035), 0 0 0 58px rgba(255,255,255,.025);
-  animation: ja-orbit 18s linear infinite;
+ content:"";position:absolute;width:250px;height:250px;right:-50px;top:-160px;
+ border:1px solid rgba(103,232,249,.45);border-radius:50%;
+ box-shadow:0 0 0 22px rgba(103,232,249,.045),0 0 0 48px rgba(103,232,249,.035);
+ animation:ja-orbit 24s linear infinite;
 }}
-.jaaynaa-brand {{
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: .04em;
+.jaaynaa-brand {{position:relative;z-index:1;font-family:'Space Grotesk',sans-serif;font-size:1.55rem;font-weight:700;letter-spacing:.06em;}}
+.jaaynaa-tagline {{position:relative;z-index:1;font-size:.9rem;color:#b7d9e4;margin-top:5px;}}
+.jaaynaa-live {{position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(190,242,100,.32);background:rgba(4,20,25,.4);border-radius:999px;font-size:.75rem;font-weight:800;letter-spacing:.08em;white-space:nowrap;}}
+.jaaynaa-dot {{width:8px;height:8px;border-radius:50%;background:#bef264;box-shadow:0 0 13px #bef264;animation:ja-pulse 1.8s infinite;}}
+.ja-section-kicker {{color:var(--ja-muted);font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.25rem;}}
+@keyframes ja-enter {{from{{opacity:0;transform:translateY(10px)}}to{{opacity:1;transform:translateY(0)}}}}
+@keyframes ja-pulse {{0%,100%{{opacity:1}}50%{{opacity:.45}}}}
+@keyframes ja-orbit {{from{{transform:rotate(0)}}to{{transform:rotate(360deg)}}}}
+@media(max-width:850px) {{
+ .block-container{{padding-left:1rem;padding-right:1rem;}}
+ .jaaynaa-topbar{{align-items:flex-start;flex-direction:column;padding:20px;}}
+ .ja-nav-shell div[role="radiogroup"]>label{{padding:8px 9px!important;font-size:.78rem;}}
+ div[data-testid="stMetric"]{{padding:14px;border-radius:14px;}}
 }}
-.jaaynaa-tagline {{ font-size: .86rem; opacity: .86; margin-top: 2px; }}
-.jaaynaa-live {{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(255,255,255,.22);
-  background: rgba(255,255,255,.10);
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: .78rem;
-  font-weight: 700;
-  white-space: nowrap;
-}}
-.jaaynaa-dot {{
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #bef264;
-  box-shadow: 0 0 0 0 rgba(190,242,100,.65);
-  animation: ja-pulse 1.8s infinite;
-}}
-@keyframes ja-rise {{ from {{opacity:0; transform:translateY(12px)}} to {{opacity:1; transform:translateY(0)}} }}
-@keyframes ja-pulse {{ 0% {{box-shadow:0 0 0 0 rgba(190,242,100,.6)}} 70% {{box-shadow:0 0 0 8px rgba(190,242,100,0)}} 100% {{box-shadow:0 0 0 0 rgba(190,242,100,0)}} }}
-@keyframes ja-orbit {{ from {{transform:rotate(0deg)}} to {{transform:rotate(360deg)}} }}
-@media (max-width: 700px) {{
-  .block-container {{ padding-left: 1rem; padding-right: 1rem; }}
-  .jaaynaa-topbar {{ align-items: flex-start; flex-direction: column; }}
-  div[data-testid="stMetric"] {{ padding: 14px; border-radius: 15px; }}
-}}
-@media (prefers-reduced-motion: reduce) {{
-  *, *::before, *::after {{ animation-duration: .01ms !important; transition-duration: .01ms !important; }}
-}}
+@media(prefers-reduced-motion:reduce){{*,*::before,*::after{{animation-duration:.01ms!important;transition-duration:.01ms!important;}}}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -415,10 +279,11 @@ with st.sidebar:
 st.markdown("""
 <div class="jaaynaa-topbar">
   <div>
-    <div class="jaaynaa-brand">🇸🇳 JAAYNAA <span style="color:#bef264">/ PRO</span></div>
-    <div class="jaaynaa-tagline">Pilotez votre commerce. Décidez avec confiance.</div>
+    <div class="jaaynaa-brand">◈ JAAYNAA <span style="color:#bef264">/ PRO</span></div>
+    <div class="jaaynaa-tagline">CENTRE DE COMMANDE COMMERCIAL · SÉNÉGAL</div>
+    <div style="position:relative;z-index:1;color:#e0f2fe;font-size:1.02rem;margin-top:12px;font-weight:600">Pilotez. Analysez. Développez.</div>
   </div>
-  <div class="jaaynaa-live"><span class="jaaynaa-dot"></span> ESPACE DE GESTION ACTIF</div>
+  <div class="jaaynaa-live"><span class="jaaynaa-dot"></span> SYSTÈME OPÉRATIONNEL</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -444,8 +309,9 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # DASHBOARD
 if page == tr("Dashboard"):
-    st.title("🇸🇳 JAAYNAA")
-    st.subheader("Votre activité commerciale, en un coup d'œil")
+    st.markdown('<div class="ja-section-kicker">Vue stratégique · Temps réel</div>', unsafe_allow_html=True)
+    st.title("Centre de pilotage")
+    st.caption("Les indicateurs essentiels de votre activité, réunis dans un espace de contrôle.")
     today = date.today().isoformat(); month = date.today().strftime('%Y-%m')
     sales_today = scalar("SELECT COALESCE(SUM(total),0) FROM sales WHERE date(sold_at)=date(?)", (today,))
     cash_today = scalar("SELECT COALESCE(SUM(paid),0) FROM sales WHERE date(sold_at)=date(?)", (today,))
