@@ -170,51 +170,54 @@ section[data-testid="stSidebar"] {{
 }}
 section[data-testid="stSidebar"] * {{color:#e7fbff;}}
 section[data-testid="stSidebar"]:before {{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,#16a34a 0 33.33%,#facc15 33.33% 66.66%,#ef4444 66.66% 100%);opacity:.95;}}
-section[data-testid="stSidebar"] [data-testid="stRadio"] label {{
- padding:10px 12px;border:1px solid transparent;border-radius:12px;
- transition:all .22s ease;font-weight:600;
+section[data-testid="stSidebar"] [data-testid="stRadio"] > label {{display:none;}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] {{display:flex;flex-direction:column;gap:7px;}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label {{
+ position:relative;display:flex;align-items:center;min-height:47px;padding:10px 12px!important;
+ margin:0!important;border:1px solid rgba(148,163,184,.13);border-radius:12px;
+ background:linear-gradient(115deg,rgba(12,38,42,.7),rgba(12,27,40,.45));
+ transition:all .22s ease;font-weight:650;font-size:.84rem;color:#cde4e5!important;
 }}
-section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {{
- background:rgba(250,204,21,.09);border-color:rgba(250,204,21,.25);transform:translateX(3px);
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:before {{
+ content:"⌂";width:27px;height:27px;flex:0 0 27px;border-radius:8px;margin-right:10px;
+ display:grid;place-items:center;font-size:15px;font-weight:800;color:#86efac;
+ background:rgba(22,163,74,.10);border:1px solid rgba(134,239,172,.15);transition:all .2s ease;
 }}
-.ja-nav-shell {{
- position:relative;margin:-.25rem 0 1.45rem;padding:17px 18px 18px;border-radius:22px;
- border:1px solid rgba(250,204,21,.26);
- background:linear-gradient(135deg,rgba(5,24,28,.97),rgba(8,45,38,.96) 56%,rgba(18,29,43,.97));
- box-shadow:0 18px 48px rgba(2,8,23,.18),inset 0 1px 0 rgba(255,255,255,.05);
- backdrop-filter:blur(20px);overflow:hidden;
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(2):before {{content:"▦";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(3):before {{content:"↗";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(4):before {{content:"⇄";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(5):before {{content:"◎";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(6):before {{content:"◇";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(7):before {{content:"◌";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(8):before {{content:"▤";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:nth-child(9):before {{content:"⚙";}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:hover {{
+ background:linear-gradient(100deg,rgba(22,163,74,.18),rgba(250,204,21,.06));
+ border-color:rgba(250,204,21,.3);transform:translateX(3px);color:#fff!important;
 }}
-.ja-nav-shell:before {{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,#16a34a 0 33.33%,#facc15 33.33% 66.66%,#ef4444 66.66%);}}
-.ja-nav-head {{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px 2px;position:relative;z-index:1;}}
-.ja-nav-title {{font-family:'Space Grotesk',sans-serif;color:#f0fdf4;font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;}}
-.ja-nav-status {{font-size:.65rem;font-weight:800;letter-spacing:.1em;color:#fde68a;border:1px solid rgba(250,204,21,.25);border-radius:999px;padding:5px 9px;background:rgba(250,204,21,.06);}}
-.ja-nav-shell div[role="radiogroup"] {{display:grid;grid-template-columns:repeat(5,minmax(115px,1fr));gap:8px;align-items:stretch;}}
-.ja-nav-shell div[role="radiogroup"]>label {{
- position:relative;display:flex;align-items:center;gap:10px;min-height:57px;padding:10px 12px!important;margin:0!important;
- border:1px solid rgba(148,163,184,.18);border-radius:13px!important;color:#c9d9e7!important;
- background:linear-gradient(145deg,rgba(15,35,43,.92),rgba(10,25,35,.78));font-weight:700;font-size:.81rem;
- transition:all .22s ease;overflow:hidden;
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked) {{
+ background:linear-gradient(105deg,rgba(22,101,52,.75),rgba(8,45,38,.92) 68%,rgba(133,77,14,.32));
+ border-color:rgba(250,204,21,.48);box-shadow:inset 3px 0 #facc15,0 7px 18px rgba(2,8,23,.2);color:#fff!important;
 }}
-.ja-nav-shell div[role="radiogroup"]>label:before {{content:"";display:block;flex:0 0 29px;width:29px;height:29px;border-radius:9px;border:1px solid rgba(134,239,172,.22);background:rgba(22,163,74,.10);box-shadow:inset 0 0 12px rgba(22,163,74,.08);}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(1):before {{content:"⌂";display:grid;place-items:center;color:#86efac;font-size:19px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(2):before {{content:"▦";display:grid;place-items:center;color:#86efac;font-size:17px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(3):before {{content:"↗";display:grid;place-items:center;color:#86efac;font-size:19px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(4):before {{content:"⇄";display:grid;place-items:center;color:#86efac;font-size:17px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(5):before {{content:"◎";display:grid;place-items:center;color:#86efac;font-size:18px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(6):before {{content:"◇";display:grid;place-items:center;color:#86efac;font-size:18px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(7):before {{content:"◌";display:grid;place-items:center;color:#86efac;font-size:18px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(8):before {{content:"▤";display:grid;place-items:center;color:#86efac;font-size:18px;}}
-.ja-nav-shell div[role="radiogroup"]>label:nth-child(9):before {{content:"⚙";display:grid;place-items:center;color:#86efac;font-size:17px;}}
-.ja-nav-shell div[role="radiogroup"]>label:hover {{
- background:linear-gradient(125deg,rgba(22,163,74,.18),rgba(250,204,21,.07));border-color:rgba(134,239,172,.42);transform:translateY(-2px);color:#fff!important;
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label:has(input:checked):before {{
+ background:#facc15;box-shadow:0 0 12px rgba(250,204,21,.9),0 0 0 4px rgba(250,204,21,.12);
 }}
-.ja-nav-shell div[role="radiogroup"]>label:has(input:checked) {{
- background:linear-gradient(125deg,rgba(22,101,52,.98),rgba(21,128,61,.96) 60%,rgba(161,98,7,.88));
- color:#fff!important;border-color:rgba(250,204,21,.62);box-shadow:0 0 0 1px rgba(250,204,21,.08),0 8px 24px rgba(22,163,74,.2),inset 0 1px 0 rgba(255,255,255,.12);
-}}
-.ja-nav-shell div[role="radiogroup"]>label:has(input:checked):before {{background:rgba(250,204,21,.15);border-color:rgba(250,204,21,.6);color:#fef08a;box-shadow:0 0 18px rgba(250,204,21,.12);}}
-.ja-nav-shell div[role="radiogroup"]>label:has(input:checked) * {{color:#fff!important;}}
-.ja-nav-shell div[role="radiogroup"]>label>div:first-child {{display:none;}}
+section[data-testid="stSidebar"] [data-testid="stRadio"] div[role="radiogroup"] > label > div:first-child {{display:none;}}
+.ja-side-brand {{display:flex;align-items:center;gap:12px;padding:8px 3px 18px;border-bottom:1px solid rgba(250,204,21,.16);}}
+.ja-side-emblem {{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;font-size:25px;color:#facc15;
+ background:linear-gradient(145deg,rgba(22,163,74,.25),rgba(250,204,21,.08));border:1px solid rgba(250,204,21,.35);box-shadow:0 0 25px rgba(22,163,74,.12);}}
+.ja-side-name {{font-family:'Space Grotesk',sans-serif;font-size:1.12rem;font-weight:800;letter-spacing:.045em;color:#f0fdf4;}}
+.ja-side-name span {{color:#facc15;}}
+.ja-side-sub {{font-size:.55rem;letter-spacing:.14em;color:#94b8b0;margin-top:3px;font-weight:800;}}
+.ja-side-section {{margin:20px 0 9px;font-size:.64rem;letter-spacing:.17em;font-weight:800;color:#9ab8ad;}}
+.ja-side-line {{height:3px;width:100%;display:flex;margin-bottom:18px;border-radius:5px;overflow:hidden;}}
+.ja-side-line span:nth-child(1) {{width:33.33%;background:#16a34a;}} .ja-side-line span:nth-child(2) {{width:33.33%;background:#facc15;}} .ja-side-line span:nth-child(3) {{width:33.33%;background:#ef4444;}}
+.ja-side-menu-label {{display:flex;justify-content:space-between;gap:5px;margin:8px 0 12px;font-size:.59rem;font-weight:800;letter-spacing:.1em;color:#8baea5;}}
+.ja-side-menu-label span {{color:#facc15;white-space:nowrap;}}
+.ja-side-footer {{margin-top:22px;padding-top:14px;border-top:1px solid rgba(148,163,184,.14);}}
+.ja-side-status {{display:flex;align-items:center;gap:8px;color:#a7f3d0;font-size:.63rem;font-weight:800;letter-spacing:.08em;margin-bottom:10px;}}
+.ja-side-status i {{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;display:inline-block;}}
+.ja-side-footnote {{font-size:.64rem;color:#8fa9b1;margin-top:5px;}}
 div[data-testid="stMetric"] {{
  position:relative;overflow:hidden;padding:20px 21px;border-radius:18px;
  border:1px solid var(--ja-border);background:var(--ja-surface);
@@ -291,17 +294,43 @@ hr {{border-color:var(--ja-border)!important;}}
 </style>
 """, unsafe_allow_html=True)
 
+pages = ["Dashboard", "Produits & stocks", "Ventes", "Achats", "Clients",
+         "Fournisseurs", "Dépenses", "Rapports", "Paramètres"]
+translated_pages = [tr(item) for item in pages]
+if "active_page" not in st.session_state:
+    st.session_state.active_page = tr("Dashboard")
+if st.session_state.active_page not in translated_pages:
+    st.session_state.active_page = tr("Dashboard")
+
 with st.sidebar:
-    st.markdown("# 🇸🇳 JAAYNAA")
-    st.caption("Gestion commerciale · Teranga numérique 🇸🇳")
+    st.markdown("""
+    <div class="ja-side-brand">
+      <div class="ja-side-emblem">◈</div>
+      <div><div class="ja-side-name">JAAYNAA <span>PRO</span></div>
+      <div class="ja-side-sub">TERANGA DIGITAL SYSTEM</div></div>
+    </div>
+    <div class="ja-side-section">CENTRE DE COMMANDE</div>
+    <div class="ja-side-line"><span></span><span></span><span></span></div>
+    """, unsafe_allow_html=True)
     st.session_state.lang = st.selectbox(
         tr("Langue"),
         ["Français", "Wolof"],
         index=["Français", "Wolof"].index(st.session_state.lang),
     )
-    st.divider()
-    st.caption("🛡️ Données conservées sur cet ordinateur")
-    st.caption(f"Base locale : {DB_PATH.name}")
+    st.markdown('<div class="ja-side-menu-label">NAVIGATION PRINCIPALE <span>09 MODULES</span></div>', unsafe_allow_html=True)
+    page = st.radio(
+        "Menu principal",
+        translated_pages,
+        index=translated_pages.index(st.session_state.active_page),
+        label_visibility="collapsed",
+        key="jaaynaa_sidebar_navigation",
+    )
+    st.session_state.active_page = page
+    st.markdown("""
+    <div class="ja-side-footer"><div class="ja-side-status"><i></i> SYSTÈME LOCAL ACTIF</div>
+    <div class="ja-side-footnote">🛡️ Données conservées sur cet ordinateur</div>
+    <div class="ja-side-footnote">Base locale · jaaynaa.db</div></div>
+    """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class="jaaynaa-topbar">
@@ -315,26 +344,6 @@ st.markdown("""
   <div class="jaaynaa-live"><span class="jaaynaa-dot"></span> SYSTÈME OPÉRATIONNEL</div>
 </div>
 """, unsafe_allow_html=True)
-
-pages = ["Dashboard", "Produits & stocks", "Ventes", "Achats", "Clients",
-         "Fournisseurs", "Dépenses", "Rapports", "Paramètres"]
-translated_pages = [tr(item) for item in pages]
-if "active_page" not in st.session_state:
-    st.session_state.active_page = tr("Dashboard")
-if st.session_state.active_page not in translated_pages:
-    st.session_state.active_page = tr("Dashboard")
-
-st.markdown('''<div class="ja-nav-shell"><div class="ja-nav-head"><span class="ja-nav-title">◈ Navigation centrale · JAAYNAA OS</span><span class="ja-nav-status">● SYSTÈME CONNECTÉ</span></div>''', unsafe_allow_html=True)
-page = st.radio(
-    "Menu principal",
-    translated_pages,
-    index=translated_pages.index(st.session_state.active_page),
-    horizontal=True,
-    label_visibility="collapsed",
-    key="jaaynaa_top_navigation",
-)
-st.session_state.active_page = page
-st.markdown('</div>', unsafe_allow_html=True)
 
 # DASHBOARD
 if page == tr("Dashboard"):
