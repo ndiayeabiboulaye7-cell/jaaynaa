@@ -147,16 +147,16 @@ st.markdown(f"""
 :root {{
  --ja-bg:{theme_background}; --ja-surface:{theme_surface}; --ja-text:{theme_text};
  --ja-muted:{theme_muted}; --ja-border:{theme_border};
- --ja-cyan:#67e8f9; --ja-green:#22c55e; --ja-lime:#bef264; --ja-gold:#facc15;
+ --ja-cyan:#86efac; --ja-green:#16a34a; --ja-lime:#facc15; --ja-gold:#fbbf24; --ja-red:#ef4444;
 }}
 html, body, [class*="css"] {{font-family:'DM Sans',sans-serif;}}
 .stApp {{
  color:var(--ja-text);
  background:
-  linear-gradient(rgba(103,232,249,.035) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(103,232,249,.035) 1px,transparent 1px),
-  radial-gradient(ellipse at 5% 0%,rgba(34,197,94,.15),transparent 34%),
-  radial-gradient(ellipse at 95% 12%,rgba(34,211,238,.13),transparent 32%),
+  linear-gradient(rgba(22,163,74,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(22,163,74,.045) 1px,transparent 1px),
+  radial-gradient(ellipse at 5% 0%,rgba(22,163,74,.19),transparent 34%),
+  radial-gradient(ellipse at 95% 12%,rgba(250,204,21,.11),transparent 32%),
   var(--ja-bg);
  background-size:34px 34px,34px 34px,auto,auto,auto;
 }}
@@ -166,15 +166,16 @@ h1 {{font-weight:700!important;}}
 p, label, .stCaption {{letter-spacing:.005em;}}
 section[data-testid="stSidebar"] {{
  background:linear-gradient(160deg,#061b20 0%,#092d2b 48%,#101b2d 100%);
- border-right:1px solid rgba(103,232,249,.22);
+ border-right:1px solid rgba(250,204,21,.28);position:relative;
 }}
 section[data-testid="stSidebar"] * {{color:#e7fbff;}}
+section[data-testid="stSidebar"]:before {{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,#16a34a 0 33.33%,#facc15 33.33% 66.66%,#ef4444 66.66% 100%);opacity:.95;}}
 section[data-testid="stSidebar"] [data-testid="stRadio"] label {{
  padding:10px 12px;border:1px solid transparent;border-radius:12px;
  transition:all .22s ease;font-weight:600;
 }}
 section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {{
- background:rgba(103,232,249,.09);border-color:rgba(103,232,249,.25);transform:translateX(3px);
+ background:rgba(250,204,21,.09);border-color:rgba(250,204,21,.25);transform:translateX(3px);
 }}
 .ja-nav-shell {{
  margin:-.25rem 0 1.35rem;padding:10px 12px;border-radius:17px;
@@ -191,8 +192,8 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {{
  background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.28);transform:translateY(-2px);
 }}
 .ja-nav-shell div[role="radiogroup"]>label:has(input:checked) {{
- background:linear-gradient(120deg,#0e7490,#0f766e 55%,#15803d);
- color:#fff!important;box-shadow:0 0 22px rgba(34,211,238,.17);
+ background:linear-gradient(120deg,#166534,#15803d 48%,#ca8a04);
+ color:#fff!important;box-shadow:0 0 22px rgba(22,163,74,.22);
 }}
 .ja-nav-shell div[role="radiogroup"]>label:has(input:checked) * {{color:#fff!important;}}
 .ja-nav-shell div[role="radiogroup"]>label>div:first-child {{display:none;}}
@@ -204,19 +205,19 @@ div[data-testid="stMetric"] {{
 }}
 div[data-testid="stMetric"]:after {{
  content:"";position:absolute;width:100px;height:100px;right:-38px;top:-48px;
- border:1px solid rgba(103,232,249,.25);border-radius:50%;
- box-shadow:0 0 0 13px rgba(103,232,249,.035),0 0 0 27px rgba(103,232,249,.025);
+ border:1px solid rgba(250,204,21,.34);border-radius:50%;
+ box-shadow:0 0 0 13px rgba(22,163,74,.06),0 0 0 27px rgba(239,68,68,.035);
 }}
 div[data-testid="stMetric"]:hover {{transform:translateY(-4px);border-color:rgba(34,211,238,.45);box-shadow:0 16px 36px rgba(8,145,178,.12);}}
 div[data-testid="stMetricLabel"] {{color:var(--ja-muted)!important;font-weight:700;font-size:.82rem;}}
 div[data-testid="stMetricValue"] {{color:var(--ja-text)!important;font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.045em;}}
 .stButton>button,.stDownloadButton>button,button[kind="primary"] {{
- min-height:42px;border-radius:12px!important;border:1px solid rgba(34,211,238,.28)!important;
+ min-height:42px;border-radius:12px!important;border:1px solid rgba(22,163,74,.30)!important;
  font-weight:700!important;transition:all .2s ease!important;
 }}
 .stButton>button[kind="primary"],button[kind="primary"] {{
- color:#f0fdff!important;background:linear-gradient(115deg,#0e7490,#0f766e 60%,#15803d)!important;
- box-shadow:0 8px 24px rgba(8,145,178,.19);
+ color:#f0fdff!important;background:linear-gradient(115deg,#166534,#15803d 56%,#ca8a04)!important;
+ box-shadow:0 8px 24px rgba(22,163,74,.20);
 }}
 .stButton>button:hover,.stDownloadButton>button:hover {{transform:translateY(-2px);box-shadow:0 12px 26px rgba(8,145,178,.15);}}
 .stTextInput input,.stNumberInput input,.stDateInput input,.stTextArea textarea,
@@ -232,24 +233,30 @@ hr {{border-color:var(--ja-border)!important;}}
 .jaaynaa-topbar {{
  position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;
  overflow:hidden;margin:0 0 1.2rem;padding:24px 26px;border-radius:22px;
- color:#effcff;border:1px solid rgba(103,232,249,.32);
- background:linear-gradient(112deg,#06141f 0%,#0b3540 45%,#0d513b 100%);
+ color:#effcff;border:1px solid rgba(250,204,21,.36);
+ background:linear-gradient(112deg,#071b13 0%,#0b3d27 42%,#172c20 72%,#402016 100%);
  box-shadow:0 18px 50px rgba(2,8,23,.20);
 }}
 .jaaynaa-topbar:before {{
  content:"";position:absolute;inset:0;pointer-events:none;opacity:.38;
- background:repeating-linear-gradient(115deg,transparent 0 24px,rgba(103,232,249,.12) 25px,transparent 26px 48px);
+ background:repeating-linear-gradient(115deg,transparent 0 24px,rgba(250,204,21,.10) 25px,transparent 26px 48px), repeating-linear-gradient(35deg,transparent 0 46px,rgba(22,163,74,.10) 47px,transparent 48px 72px);
 }}
 .jaaynaa-topbar:after {{
  content:"";position:absolute;width:250px;height:250px;right:-50px;top:-160px;
- border:1px solid rgba(103,232,249,.45);border-radius:50%;
- box-shadow:0 0 0 22px rgba(103,232,249,.045),0 0 0 48px rgba(103,232,249,.035);
+ border:1px solid rgba(250,204,21,.42);border-radius:50%;
+ box-shadow:0 0 0 22px rgba(22,163,74,.07),0 0 0 48px rgba(239,68,68,.045);
  animation:ja-orbit 24s linear infinite;
 }}
 .jaaynaa-brand {{position:relative;z-index:1;font-family:'Space Grotesk',sans-serif;font-size:1.55rem;font-weight:700;letter-spacing:.06em;}}
-.jaaynaa-tagline {{position:relative;z-index:1;font-size:.9rem;color:#b7d9e4;margin-top:5px;}}
+.jaaynaa-tagline {{position:relative;z-index:1;font-size:.9rem;color:#d4eadb;margin-top:5px;letter-spacing:.09em;}}
+.jaaynaa-flag {{position:relative;z-index:1;display:flex;width:104px;height:4px;gap:0;margin-top:13px;border-radius:10px;overflow:hidden;box-shadow:0 0 16px rgba(250,204,21,.2);}}
+.jaaynaa-flag span {{flex:1;}}
+.jaaynaa-flag span:nth-child(1) {{background:#16a34a;}}
+.jaaynaa-flag span:nth-child(2) {{background:#facc15;}}
+.jaaynaa-flag span:nth-child(3) {{background:#ef4444;}}
+.jaaynaa-teranga {{position:relative;z-index:1;color:#fde68a;font-size:.7rem;font-weight:800;letter-spacing:.18em;margin-top:10px;}}
 .jaaynaa-live {{position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(190,242,100,.32);background:rgba(4,20,25,.4);border-radius:999px;font-size:.75rem;font-weight:800;letter-spacing:.08em;white-space:nowrap;}}
-.jaaynaa-dot {{width:8px;height:8px;border-radius:50%;background:#bef264;box-shadow:0 0 13px #bef264;animation:ja-pulse 1.8s infinite;}}
+.jaaynaa-dot {{width:8px;height:8px;border-radius:50%;background:#facc15;box-shadow:0 0 13px #facc15;animation:ja-pulse 1.8s infinite;}}
 .ja-section-kicker {{color:var(--ja-muted);font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.25rem;}}
 @keyframes ja-enter {{from{{opacity:0;transform:translateY(10px)}}to{{opacity:1;transform:translateY(0)}}}}
 @keyframes ja-pulse {{0%,100%{{opacity:1}}50%{{opacity:.45}}}}
@@ -266,7 +273,7 @@ hr {{border-color:var(--ja-border)!important;}}
 
 with st.sidebar:
     st.markdown("# 🇸🇳 JAAYNAA")
-    st.caption("Gestion commerciale professionnelle")
+    st.caption("Gestion commerciale · Teranga numérique 🇸🇳")
     st.session_state.lang = st.selectbox(
         tr("Langue"),
         ["Français", "Wolof"],
@@ -279,9 +286,11 @@ with st.sidebar:
 st.markdown("""
 <div class="jaaynaa-topbar">
   <div>
-    <div class="jaaynaa-brand">◈ JAAYNAA <span style="color:#bef264">/ PRO</span></div>
+    <div class="jaaynaa-brand">◈ JAAYNAA <span style="color:#facc15">/ PRO</span></div>
     <div class="jaaynaa-tagline">CENTRE DE COMMANDE COMMERCIAL · SÉNÉGAL</div>
-    <div style="position:relative;z-index:1;color:#e0f2fe;font-size:1.02rem;margin-top:12px;font-weight:600">Pilotez. Analysez. Développez.</div>
+    <div class="jaaynaa-flag"><span></span><span></span><span></span></div>
+    <div style="position:relative;z-index:1;color:#f0fdf4;font-size:1.02rem;margin-top:12px;font-weight:600">Pilotez. Analysez. Développez.</div>
+    <div class="jaaynaa-teranga">TERANGA · INNOVATION · AMBITION SÉNÉGALAISE</div>
   </div>
   <div class="jaaynaa-live"><span class="jaaynaa-dot"></span> SYSTÈME OPÉRATIONNEL</div>
 </div>
@@ -309,9 +318,9 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # DASHBOARD
 if page == tr("Dashboard"):
-    st.markdown('<div class="ja-section-kicker">Vue stratégique · Temps réel</div>', unsafe_allow_html=True)
+    st.markdown('<div class="ja-section-kicker">Vue stratégique · Temps réel · FCFA</div>', unsafe_allow_html=True)
     st.title("Centre de pilotage")
-    st.caption("Les indicateurs essentiels de votre activité, réunis dans un espace de contrôle.")
+    st.caption("Votre commerce, votre ambition : un pilotage moderne pensé au Sénégal, pour les entrepreneurs d’ici.")
     today = date.today().isoformat(); month = date.today().strftime('%Y-%m')
     sales_today = scalar("SELECT COALESCE(SUM(total),0) FROM sales WHERE date(sold_at)=date(?)", (today,))
     cash_today = scalar("SELECT COALESCE(SUM(paid),0) FROM sales WHERE date(sold_at)=date(?)", (today,))
@@ -699,7 +708,7 @@ elif page == tr("Paramètres"):
     st.divider(); st.warning("Conseil : faites régulièrement une copie du dossier data et du dossier backups sur un autre support.")
 
 st.sidebar.divider()
-st.sidebar.caption("JAAYNAA PRO • Version locale 2.0")
+st.sidebar.caption("JAAYNAA PRO • Conçu avec l’esprit de la Teranga 🇸🇳")
 st.sidebar.caption("Vos données sont conservées sur cet ordinateur.")
 
 
