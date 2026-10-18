@@ -178,23 +178,41 @@ section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover {{
  background:rgba(250,204,21,.09);border-color:rgba(250,204,21,.25);transform:translateX(3px);
 }}
 .ja-nav-shell {{
- margin:-.25rem 0 1.35rem;padding:10px 12px;border-radius:17px;
- border:1px solid var(--ja-border);background:var(--ja-surface);
- box-shadow:0 12px 38px rgba(2,8,23,.09);backdrop-filter:blur(18px);
+ position:relative;margin:-.25rem 0 1.45rem;padding:17px 18px 18px;border-radius:22px;
+ border:1px solid rgba(250,204,21,.26);
+ background:linear-gradient(135deg,rgba(5,24,28,.97),rgba(8,45,38,.96) 56%,rgba(18,29,43,.97));
+ box-shadow:0 18px 48px rgba(2,8,23,.18),inset 0 1px 0 rgba(255,255,255,.05);
+ backdrop-filter:blur(20px);overflow:hidden;
 }}
-.ja-nav-shell div[role="radiogroup"] {{display:flex;flex-wrap:wrap;gap:7px;align-items:center;}}
+.ja-nav-shell:before {{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,#16a34a 0 33.33%,#facc15 33.33% 66.66%,#ef4444 66.66%);}}
+.ja-nav-head {{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px 2px;position:relative;z-index:1;}}
+.ja-nav-title {{font-family:'Space Grotesk',sans-serif;color:#f0fdf4;font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;}}
+.ja-nav-status {{font-size:.65rem;font-weight:800;letter-spacing:.1em;color:#fde68a;border:1px solid rgba(250,204,21,.25);border-radius:999px;padding:5px 9px;background:rgba(250,204,21,.06);}}
+.ja-nav-shell div[role="radiogroup"] {{display:grid;grid-template-columns:repeat(5,minmax(115px,1fr));gap:8px;align-items:stretch;}}
 .ja-nav-shell div[role="radiogroup"]>label {{
- min-height:40px;padding:9px 13px!important;margin:0!important;border:1px solid transparent;
- border-radius:11px!important;color:var(--ja-text)!important;font-weight:700;font-size:.86rem;
- transition:all .2s ease;
+ position:relative;display:flex;align-items:center;gap:10px;min-height:57px;padding:10px 12px!important;margin:0!important;
+ border:1px solid rgba(148,163,184,.18);border-radius:13px!important;color:#c9d9e7!important;
+ background:linear-gradient(145deg,rgba(15,35,43,.92),rgba(10,25,35,.78));font-weight:700;font-size:.81rem;
+ transition:all .22s ease;overflow:hidden;
 }}
+.ja-nav-shell div[role="radiogroup"]>label:before {{content:"";display:block;flex:0 0 29px;width:29px;height:29px;border-radius:9px;border:1px solid rgba(134,239,172,.22);background:rgba(22,163,74,.10);box-shadow:inset 0 0 12px rgba(22,163,74,.08);}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(1):before {{content:"⌂";display:grid;place-items:center;color:#86efac;font-size:19px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(2):before {{content:"▦";display:grid;place-items:center;color:#86efac;font-size:17px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(3):before {{content:"↗";display:grid;place-items:center;color:#86efac;font-size:19px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(4):before {{content:"⇄";display:grid;place-items:center;color:#86efac;font-size:17px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(5):before {{content:"◎";display:grid;place-items:center;color:#86efac;font-size:18px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(6):before {{content:"◇";display:grid;place-items:center;color:#86efac;font-size:18px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(7):before {{content:"◌";display:grid;place-items:center;color:#86efac;font-size:18px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(8):before {{content:"▤";display:grid;place-items:center;color:#86efac;font-size:18px;}}
+.ja-nav-shell div[role="radiogroup"]>label:nth-child(9):before {{content:"⚙";display:grid;place-items:center;color:#86efac;font-size:17px;}}
 .ja-nav-shell div[role="radiogroup"]>label:hover {{
- background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.28);transform:translateY(-2px);
+ background:linear-gradient(125deg,rgba(22,163,74,.18),rgba(250,204,21,.07));border-color:rgba(134,239,172,.42);transform:translateY(-2px);color:#fff!important;
 }}
 .ja-nav-shell div[role="radiogroup"]>label:has(input:checked) {{
- background:linear-gradient(120deg,#166534,#15803d 48%,#ca8a04);
- color:#fff!important;box-shadow:0 0 22px rgba(22,163,74,.22);
+ background:linear-gradient(125deg,rgba(22,101,52,.98),rgba(21,128,61,.96) 60%,rgba(161,98,7,.88));
+ color:#fff!important;border-color:rgba(250,204,21,.62);box-shadow:0 0 0 1px rgba(250,204,21,.08),0 8px 24px rgba(22,163,74,.2),inset 0 1px 0 rgba(255,255,255,.12);
 }}
+.ja-nav-shell div[role="radiogroup"]>label:has(input:checked):before {{background:rgba(250,204,21,.15);border-color:rgba(250,204,21,.6);color:#fef08a;box-shadow:0 0 18px rgba(250,204,21,.12);}}
 .ja-nav-shell div[role="radiogroup"]>label:has(input:checked) * {{color:#fff!important;}}
 .ja-nav-shell div[role="radiogroup"]>label>div:first-child {{display:none;}}
 div[data-testid="stMetric"] {{
@@ -264,7 +282,9 @@ hr {{border-color:var(--ja-border)!important;}}
 @media(max-width:850px) {{
  .block-container{{padding-left:1rem;padding-right:1rem;}}
  .jaaynaa-topbar{{align-items:flex-start;flex-direction:column;padding:20px;}}
- .ja-nav-shell div[role="radiogroup"]>label{{padding:8px 9px!important;font-size:.78rem;}}
+ .ja-nav-shell div[role="radiogroup"]{{grid-template-columns:repeat(2,minmax(0,1fr));}}
+ .ja-nav-shell div[role="radiogroup"]>label{{padding:8px 9px!important;font-size:.76rem;min-height:50px;}}
+ .ja-nav-head{{align-items:flex-start;flex-direction:column;}}
  div[data-testid="stMetric"]{{padding:14px;border-radius:14px;}}
 }}
 @media(prefers-reduced-motion:reduce){{*,*::before,*::after{{animation-duration:.01ms!important;transition-duration:.01ms!important;}}}}
@@ -304,7 +324,7 @@ if "active_page" not in st.session_state:
 if st.session_state.active_page not in translated_pages:
     st.session_state.active_page = tr("Dashboard")
 
-st.markdown('<div class="ja-nav-shell">', unsafe_allow_html=True)
+st.markdown('''<div class="ja-nav-shell"><div class="ja-nav-head"><span class="ja-nav-title">◈ Navigation centrale · JAAYNAA OS</span><span class="ja-nav-status">● SYSTÈME CONNECTÉ</span></div>''', unsafe_allow_html=True)
 page = st.radio(
     "Menu principal",
     translated_pages,
